@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnología Educativa en la Educación Superior</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background-color: #4b79a1;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    nav {
+      background-color: #283e51;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      display: block;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #3c5d76;
+    }
+    main {
+      padding: 40px;
+      min-height: 70vh;
+    }
+    footer {
+      background-color: #4b79a1;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tecnología Educativa en la Educación Superior</h1>
+  </header>
+  <nav>
+    <a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a>
+    <a href="#autora" onclick="mostrarSeccion('autora')">Sobre la Autora</a>
+    <a href="#contemporanea" onclick="mostrarSeccion('contemporanea')">Sociedad Contemporánea</a>
+    <a href="#informacion" onclick="mostrarSeccion('informacion')">Sociedad de la Información</a>
+    <a href="#conocimiento" onclick="mostrarSeccion('conocimiento')">Sociedad del Conocimiento</a>
+  </nav>
+
+  <main>
+    <section id="inicio">
+      <h2>¿Qué es la Tecnología Educativa?</h2>
+      <p>La Tecnología Educativa en la Educación Superior se refiere al uso de herramientas tecnológicas para facilitar y mejorar los procesos de enseñanza-aprendizaje. Incluye plataformas digitales, recursos multimedia, inteligencia artificial, y metodologías como el e-learning, blended learning y más.</p>
+    </section>
+
+    <section id="autora" class="hidden">
+      <h2>Sobre la Autora</h2>
+      <p>Angie Elizabeth Oviedo Calero es estudiante de la Universidad Técnica de Machala (UTMACH). Apasionada por la innovación educativa, ha investigado el impacto de la tecnología en la enseñanza universitaria y su rol en la transformación pedagógica del siglo XXI.</p>
+    </section>
+
+    <section id="contemporanea" class="hidden">
+      <h2>Sociedad Contemporánea</h2>
+      <p>La sociedad contemporánea se caracteriza por el uso extensivo de la tecnología, la globalización y la rapidez con la que fluye la información. La educación debe adaptarse a estos cambios, integrando competencias digitales y pensamiento crítico.</p>
+    </section>
+
+    <section id="informacion" class="hidden">
+      <h2>Sociedad de la Información</h2>
+      <p>La sociedad de la información se basa en la creación, distribución y manipulación de información a través de tecnologías digitales. En este contexto, el acceso al conocimiento es clave, y la alfabetización digital es esencial para los estudiantes.</p>
+    </section>
+
+    <section id="conocimiento" class="hidden">
+      <h2>Sociedad del Conocimiento</h2>
+      <p>La sociedad del conocimiento va más allá del simple acceso a la información, enfocándose en la capacidad de transformarla en saber útil. La educación superior debe formar ciudadanos capaces de innovar, analizar y aplicar el conocimiento de forma ética y responsable.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p id="fechaHora"></p>
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('main section');
+      secciones.forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function actualizarFechaHora() {
+      const ahora = new Date();
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const fecha = ahora.toLocaleDateString('es-ES', opciones);
+      const hora = ahora.toLocaleTimeString('es-ES');
+      document.getElementById('fechaHora').textContent = `Hoy es ${fecha}, hora actual: ${hora}`;
+    }
+
+    // Inicializar sección visible y actualizar hora
+    mostrarSeccion('inicio');
+    actualizarFechaHora();
+    setInterval(actualizarFechaHora, 1000);
+  </script>
+</body>
+</html>
